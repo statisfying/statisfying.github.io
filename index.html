@@ -54,14 +54,78 @@
   <section class="contact">
     <h2>Get in touch</h2>
     <p>Want early access to HappyStats, or building your own tool for accountants? Get in touch below.</p>
-    <div class="contact-embed">
-      <div data-formgrid-form="1jni0jq0" data-formgrid-height="750"></div>
-    </div>
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="4794ed68-f98e-4a54-9e62-15b020e1b3da">
+      <input type="hidden" name="subject" value="New enquiry from statisfying.com">
+      <input type="hidden" name="from_name" value="statisfying.com">
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <div class="h-captcha" data-captcha="true"></div>
+
+      <button type="submit">Send</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
   </section>
 
 </main>
 
-<script src="https://formgrid.dev/embed.js" async></script>
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const button = form.querySelector('button[type="submit"]');
+
+  function setStatus(message, state) {
+    status.textContent = message;
+    status.className = state ? 'form-status is-' + state : 'form-status';
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form));
+
+    if (!data['h-captcha-response']) {
+      setStatus('Please complete the anti-spam check above.', 'error');
+      return;
+    }
+
+    button.disabled = true;
+    setStatus('Sending...', null);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        form.reset();
+        if (window.hcaptcha) window.hcaptcha.reset();
+        setStatus("Thanks - your message has been sent. I'll be in touch.", 'success');
+      } else {
+        if (window.hcaptcha) window.hcaptcha.reset();
+        setStatus(result.message || "Sorry, that didn't send. Please try again.", 'error');
+      }
+    } catch (err) {
+      if (window.hcaptcha) window.hcaptcha.reset();
+      setStatus("Sorry, that didn't send. Please check your connection and try again.", 'error');
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 
 <footer class="site-footer">
   <div class="wrap">

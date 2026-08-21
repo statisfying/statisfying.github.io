@@ -131,13 +131,99 @@ a {
   padding: 48px 0 56px;
 }
 
-.contact-embed {
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   margin-top: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 24px;
+}
+
+.contact label {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 12px;
+}
+
+.contact label:first-of-type {
+  margin-top: 0;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+
+.contact input[type="text"]:focus,
+.contact input[type="email"]:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(26,145,80,0.1);
+}
+
+.contact textarea {
+  resize: vertical;
+}
+
+/* Honeypot: hidden from people, visible to bots that fill every field. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.h-captcha {
+  margin-top: 20px;
+}
+
+.contact button {
+  align-self: flex-start;
+  margin-top: 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.contact button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.form-status {
+  margin-top: 12px;
+  font-size: 14px;
+  min-height: 1.4em;
+}
+
+.form-status.is-success {
+  color: var(--accent);
+}
+
+.form-status.is-error {
+  color: #b91c1c;
 }
 
 /* Footer */

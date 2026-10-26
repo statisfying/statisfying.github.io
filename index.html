@@ -4,17 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HappyStats: statutory accounts and iXBRL, UK GAAP and IFRS</title>
-<meta name="description" content="HappyStats helps you get from a trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, for Companies House and HMRC. Local-first: nothing leaves your machine.">
+<meta name="description" content="From trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, single company or group. Runs on your own machine: your data doesn't pass through us.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://statisfying.com/">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://statisfying.com">
+<meta property="og:url" content="https://statisfying.com/">
 <meta property="og:site_name" content="statisfying">
 <meta property="og:title" content="HappyStats: statutory accounts and iXBRL, UK GAAP and IFRS">
-<meta property="og:description" content="HappyStats helps you get from a trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, for Companies House and HMRC. Local-first: nothing leaves your machine.">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="From trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, single company or group. Runs on your own machine: your data doesn't pass through us.">
+<meta property="og:image" content="https://statisfying.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="statisfying: from trial balance to filing-ready iXBRL. Statutory accounts under UK GAAP or IFRS, for a single company or a group.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://statisfying.com/og-image.png">
 <meta name="twitter:title" content="HappyStats: statutory accounts and iXBRL, UK GAAP and IFRS">
-<meta name="twitter:description" content="HappyStats helps you get from a trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, for Companies House and HMRC. Local-first: nothing leaves your machine.">
+<meta name="twitter:description" content="From trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, single company or group. Runs on your own machine: your data doesn't pass through us.">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -41,13 +47,13 @@
     <div class="wrap">
       <div>
         <p class="eyebrow">Software tools for accountants</p>
-        <h1>Statutory accounts preparation assistance.</h1>
-        <p class="lede">HappyStats helps you get from a trial balance through to filing-ready iXBRL accounts under UK GAAP or IFRS.</p>
+        <h1>From trial balance to filing-ready iXBRL.</h1>
+        <p class="lede">HappyStats prepares statutory accounts under UK GAAP or IFRS, for a single company or a group, and produces the iXBRL that Companies House and HMRC accept. It runs on your own machine, so your client data does not pass through us.</p>
         <p class="cta">
           <a class="btn btn-primary" href="#contact">Request early access</a>
           <a class="btn btn-secondary" href="#how">See how it works</a>
         </p>
-        <p class="hero-note">Built by a practising UK accountant. Open core: free to inspect, adapt and extend.</p>
+        <p class="hero-note">Built by a practising UK accountant. Source code to be available: to inspect, adapt and extend.</p>
       </div>
       <div>
         <div class="window">
@@ -78,7 +84,9 @@
                 <tr class="sec"><td>Current assets</td><td></td><td></td></tr>
                 <tr><td>Debtors</td><td>96,433</td><td>88,120</td></tr>
                 <tr><td>Cash at bank and in hand</td><td>141,877</td><td>103,562</td></tr>
-                <tr><td>Creditors: within one year</td><td>(118,045)</td><td>(97,311)</td></tr>
+                <tr><td>Creditors: amounts falling due within one year</td><td>(118,045)</td><td>(97,311)</td></tr>
+                <tr class="subtot"><td>Net current assets</td><td>120,265</td><td>94,371</td></tr>
+                <tr class="subtot"><td>Total assets less current liabilities</td><td>304,475</td><td>257,275</td></tr>
                 <tr class="tot"><td>Net assets</td><td>304,475</td><td>257,275</td></tr>
               </table>
               <p class="check">&#10003; Balances to trial balance &middot; 142 of 142 accounts mapped</p>
@@ -94,7 +102,7 @@
     <div class="wrap">
       <div class="fact"><b>UK GAAP and IFRS</b><span>FRS 101, FRS 102 including Section 1A, FRS 105, and UK-adopted IFRS</span></div>
       <div class="fact"><b>iXBRL output</b><span>For Companies House and HMRC</span></div>
-      <div class="fact"><b>Local-first</b><span>Your data stays on your machine</span></div>
+      <div class="fact"><b>Local-first</b><span>Your data does not pass through us</span></div>
       <div class="fact"><b>Built LLM-first</b><span>An agent can drive it as directly as you can</span></div>
     </div>
   </div>
@@ -103,24 +111,25 @@
     <div class="wrap">
       <p class="eyebrow">What it does</p>
       <h2>One job, done properly.</h2>
-      <p class="section-lede">HappyStats does the statutory accounts job that accountants in growing businesses do every year, without the cost or the set-up of an enterprise platform.</p>
+      <p class="section-lede">HappyStats does the statutory accounts job a finance team in a growing company does every year, without the cost or the set-up of an enterprise platform.</p>
       <div class="capabilities">
         <div class="card">
           <h3>Trial balance in, statements out.</h3>
-          <p>Import a trial balance from any ledger. HappyStats builds the primary statements, named as your framework names them, with the statements of changes in equity and cash flows where the entity needs them, and the disclosure notes that go with them.</p>
+          <p>Import a trial balance from any ledger, or one for each company in a group. HappyStats builds the primary statements, named as your framework names them, with the statements of changes in equity and cash flows where the entity needs them, and the disclosure notes that go with them.</p>
         </div>
         <div class="card">
           <h3>Mapped to the FRC taxonomy.</h3>
-          <p>Every account is mapped to an element such as <span class="qname">frs:PropertyPlantEquipment</span>, taken from the FRC taxonomy entry point for the standard you report under, whether that is FRS 101, FRS 102 (which covers FRS 105 too) or UK-adopted IFRS.</p>
+          <p>Every account is mapped to an element such as <span class="qname">core:PropertyPlantEquipment</span>, taken from the FRC taxonomy entry point for the standard you report under, whether that is FRS 101, FRS 102 (which covers FRS 105 too) or UK-adopted IFRS.</p>
           <p>Mappings are kept from one year to the next, so next year starts where this year finished.</p>
         </div>
         <div class="card">
           <h3>Validated before you file, not after.</h3>
-          <p>The iXBRL is validated against the taxonomy and the statements are checked back to the trial balance. A figure that does not reconcile is found at the mapping stage rather than by Companies House.</p>
+          <p>Every statement is checked back to the trial balance as you work, so a figure that does not reconcile is found at the mapping stage rather than by Companies House. With Arelle installed, the iXBRL is validated against the taxonomy before you file it.</p>
         </div>
         <div class="card">
-          <h3>Nothing leaves your machine.</h3>
-          <p>Entity details, trial balances and the finished accounts stay on your own machine or your shared drive. There is no server holding client data, because there is no server.</p>
+          <h3>Your data does not pass through us.</h3>
+          <p>HappyStats runs on your own machine, and your entity details, trial balances and accounts stay in your own files. There is no statisfying account and no statisfying server in the path, so we never hold your client data.</p>
+          <p>What does leave goes where you send it: your iXBRL to the Companies House filing gateway, and your document to the Companies House validator if you turn that on. Drive HappyStats with a cloud AI model and that provider sees whatever you give it, so for client work, use a local model or check the provider's terms.</p>
         </div>
       </div>
     </div>
@@ -144,7 +153,7 @@
               <tr><th scope="col">Trial balance</th><th scope="col">&pound;</th></tr>
               <tr><td>0050 Plant and machinery</td><td>142,700</td></tr>
               <tr><td>0060 Motor vehicles</td><td>96,500</td></tr>
-              <tr><td>0058 Accumulated depreciation</td><td>(54,990)</td></tr>
+              <tr><td>0070 Accumulated depreciation</td><td>(54,990)</td></tr>
               <tr class="tot"><td>Carried</td><td>184,210</td></tr>
             </table>
           </div>
@@ -159,7 +168,7 @@
           <div class="trace-show">
             <table class="mini mini-stack">
               <tr><th scope="col">Account</th><th scope="col">Element</th></tr>
-              <tr><td>0050, 0060, 0058</td><td><span class="chip">frs:PropertyPlantEquipment</span></td></tr>
+              <tr><td>0050, 0060, 0070</td><td><span class="chip">core:PropertyPlantEquipment</span></td></tr>
             </table>
             <p class="trace-foot">142 of 142 accounts mapped</p>
           </div>
@@ -188,9 +197,9 @@
           </div>
           <div class="trace-show">
             <pre class="codeblk">&lt;ix:nonFraction
-  name="<b>frs:PropertyPlantEquipment</b>"
-  contextRef="FY2026"
-  unitRef="GBP" decimals="0"&gt;<b>184,210</b>&lt;/ix:nonFraction&gt;</pre>
+  name="<b>core:PropertyPlantEquipment</b>"
+  contextRef="FY2026" unitRef="GBP"
+  format="<b>ixt:numcommadot</b>" decimals="0"&gt;<b>184,210</b>&lt;/ix:nonFraction&gt;</pre>
           </div>
         </div>
 
@@ -224,7 +233,7 @@
       <div>
         <p class="eyebrow">Get in touch</p>
         <h2>Request early access.</h2>
-        <p class="section-lede">Early access is open to UK practices and finance teams preparing accounts under FRS 101, FRS 102, FRS 105 or UK-adopted IFRS. Tell us what you file and we will be in touch within two working days.</p>
+        <p class="section-lede">Early access is open to finance teams in UK start-ups, scale-ups and SMEs preparing accounts under FRS 101, FRS 102, FRS 105 or UK-adopted IFRS. Tell us what you file and we will be in touch within two working days.</p>
         <p class="form-hint">We use what you send only to reply to you, and we do not pass it on. Statisfying Ltd is the data controller: the <a href="privacy/">privacy notice</a> says what that means in practice.</p>
       </div>
       <div class="contact-form">

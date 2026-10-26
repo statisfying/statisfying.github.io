@@ -3,85 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Statisfying: Satisfying software tools for accountants</title>
-<meta name="description" content="A curated selection of community-developed, open-core software tools for accountants.">
+<title>HappyStats: statutory accounts and iXBRL, UK GAAP and IFRS</title>
+<meta name="description" content="HappyStats helps you get from a trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, for Companies House and HMRC. Local-first: nothing leaves your machine.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://statisfying.com">
-<meta property="og:title" content="Statisfying: Satisfying software tools for accountants">
-<meta property="og:description" content="A curated selection of community-developed, open-core software tools for accountants.">
+<meta property="og:site_name" content="statisfying">
+<meta property="og:title" content="HappyStats: statutory accounts and iXBRL, UK GAAP and IFRS">
+<meta property="og:description" content="HappyStats helps you get from a trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, for Companies House and HMRC. Local-first: nothing leaves your machine.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Statisfying: Satisfying software tools for accountants">
-<meta name="twitter:description" content="A curated selection of community-developed, open-core software tools for accountants.">
+<meta name="twitter:title" content="HappyStats: statutory accounts and iXBRL, UK GAAP and IFRS">
+<meta name="twitter:description" content="HappyStats helps you get from a trial balance to filing-ready iXBRL accounts under UK GAAP or IFRS, for Companies House and HMRC. Local-first: nothing leaves your machine.">
 
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site-header">
   <div class="wrap">
     <span class="wordmark">statisfying</span>
-    <p class="tagline">Satisfying software tools for accountants</p>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#what">What it does</a>
+      <a href="#how">How it works</a>
+      <a href="#approach">Our approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#contact">Request early access</a>
   </div>
 </header>
 
-<main class="wrap">
+<main id="main">
 
-  <section class="intro">
-    <p>statisfying is a curated selection of community-developed software tools built for accountants. Every tool here is <strong>open core</strong> - free and open to inspect, adapt, and extend.</p>
-    <ul class="intro-points">
-      <li><strong>Build together, don't reinvent alone.</strong> Accountants solving the same problems independently is a real waste of effort. By sharing tools and collaborating, we can be more efficient and create higher-quality tools.</li>
-      <li><strong>For growing businesses.</strong> These tools are aimed at start-ups, scale-ups and SMEs that need something simpler than the enterprise-grade platforms multinationals have the budget for.</li>
-      <li><strong>Built LLM-first.</strong> Rather than being designed around a human clicking through a GUI, every tool here is built so an LLM can call it directly - and built to be LLM-agnostic, working with any frontier model rather than being locked to one provider.</li>
-    </ul>
-  </section>
-
-  <section class="tools">
-    <h2>Tools</h2>
-
-    <article class="tool-card">
-      <div class="tool-card-header">
-        <h3>HappyStats</h3>
-        <p class="tool-status">In development</p>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Software tools for accountants</p>
+        <h1>Statutory accounts preparation assistance.</h1>
+        <p class="lede">HappyStats helps you get from a trial balance through to filing-ready iXBRL accounts under UK GAAP or IFRS.</p>
+        <p class="cta">
+          <a class="btn btn-primary" href="#contact">Request early access</a>
+          <a class="btn btn-secondary" href="#how">See how it works</a>
+        </p>
+        <p class="hero-note">Built by a practising UK accountant. Open core: free to inspect, adapt and extend.</p>
       </div>
-      <p>A local-first iXBRL statutory accounts tool. HappyStats imports a trial balance, maps it to the FRC IFRS 2024 taxonomy, and generates primary statements (SOFP, SOCI, SCF) plus disclosure notes - producing validated iXBRL and PDF output ready for UK Companies House filing.</p>
-      <p>All data stays on your own machine or shared drive. Nothing is sent to a server or the cloud.</p>
-    </article>
-
+      <div>
+        <div class="window">
+          <div class="window-bar">
+            <i></i><i></i><i></i>
+            <span>HappyStats &middot; Example Trading Ltd &middot; year ended 31 March 2026</span>
+          </div>
+          <div class="window-body">
+            <div class="window-side">
+              <p class="grp">Entity</p>
+              <p class="it">Setup</p>
+              <p class="it">Periods</p>
+              <p class="grp">Data</p>
+              <p class="it">Trial balance</p>
+              <p class="it">Mappings</p>
+              <p class="grp">Accounts</p>
+              <p class="it on">Statements</p>
+              <p class="it">Notes</p>
+              <p class="it">Generate</p>
+            </div>
+            <div class="window-main">
+              <p class="win-title">Balance sheet</p>
+              <p class="sub">As at 31 March 2026 &middot; &pound;</p>
+              <table class="fig">
+                <tr><th scope="col"><span class="visually-hidden">Line item</span></th><th scope="col">2026</th><th scope="col">2025</th></tr>
+                <tr class="sec"><td>Fixed assets</td><td></td><td></td></tr>
+                <tr><td>Tangible assets</td><td>184,210</td><td>162,904</td></tr>
+                <tr class="sec"><td>Current assets</td><td></td><td></td></tr>
+                <tr><td>Debtors</td><td>96,433</td><td>88,120</td></tr>
+                <tr><td>Cash at bank and in hand</td><td>141,877</td><td>103,562</td></tr>
+                <tr><td>Creditors: within one year</td><td>(118,045)</td><td>(97,311)</td></tr>
+                <tr class="tot"><td>Net assets</td><td>304,475</td><td>257,275</td></tr>
+              </table>
+              <p class="check">&#10003; Balances to trial balance &middot; 142 of 142 accounts mapped</p>
+            </div>
+          </div>
+        </div>
+        <p class="illustrative">The screen above is illustrative. The figures are not a real company's.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="contact">
-    <h2>Get in touch</h2>
-    <p>Want early access to HappyStats, or building your own tool for accountants? Get in touch below.</p>
-    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="4794ed68-f98e-4a54-9e62-15b020e1b3da">
-      <input type="hidden" name="subject" value="New enquiry from statisfying.com">
-      <input type="hidden" name="from_name" value="statisfying.com">
-      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="facts">
+    <div class="wrap">
+      <div class="fact"><b>UK GAAP and IFRS</b><span>FRS 101, FRS 102 including Section 1A, FRS 105, and UK-adopted IFRS</span></div>
+      <div class="fact"><b>iXBRL output</b><span>For Companies House and HMRC</span></div>
+      <div class="fact"><b>Local-first</b><span>Your data stays on your machine</span></div>
+      <div class="fact"><b>Built LLM-first</b><span>An agent can drive it as directly as you can</span></div>
+    </div>
+  </div>
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" autocomplete="name" required>
+  <section class="block" id="what">
+    <div class="wrap">
+      <p class="eyebrow">What it does</p>
+      <h2>One job, done properly.</h2>
+      <p class="section-lede">HappyStats does the statutory accounts job that accountants in growing businesses do every year, without the cost or the set-up of an enterprise platform.</p>
+      <div class="capabilities">
+        <div class="card">
+          <h3>Trial balance in, statements out.</h3>
+          <p>Import a trial balance from any ledger. HappyStats builds the primary statements, named as your framework names them, with the statements of changes in equity and cash flows where the entity needs them, and the disclosure notes that go with them.</p>
+        </div>
+        <div class="card">
+          <h3>Mapped to the FRC taxonomy.</h3>
+          <p>Every account is mapped to an element such as <span class="qname">frs:PropertyPlantEquipment</span>, taken from the FRC taxonomy entry point for the standard you report under, whether that is FRS 101, FRS 102 (which covers FRS 105 too) or UK-adopted IFRS.</p>
+          <p>Mappings are kept from one year to the next, so next year starts where this year finished.</p>
+        </div>
+        <div class="card">
+          <h3>Validated before you file, not after.</h3>
+          <p>The iXBRL is validated against the taxonomy and the statements are checked back to the trial balance. A figure that does not reconcile is found at the mapping stage rather than by Companies House.</p>
+        </div>
+        <div class="card">
+          <h3>Nothing leaves your machine.</h3>
+          <p>Entity details, trial balances and the finished accounts stay on your own machine or your shared drive. There is no server holding client data, because there is no server.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" required>
+  <section class="block block-alt" id="how">
+    <div class="wrap">
+      <p class="eyebrow">How HappyStats works</p>
+      <h2>One figure, from the ledger to the filed tag.</h2>
+      <p class="section-lede">The same four steps every year, followed here on a single number. Tangible assets of 184,210 starts as three accounts in the trial balance and ends as a tagged fact in the iXBRL that Companies House receives. Nothing in between is retyped, and every step is checked against the one before it.</p>
+      <div class="trace">
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="trace-step">
+          <p class="trace-n">01</p>
+          <div class="trace-say">
+            <h3>Import</h3>
+            <p>A trial balance from any ledger, plus last year's accounts for the comparatives. The figure arrives as three separate ledger accounts, exactly as the bookkeeping system exported them.</p>
+          </div>
+          <div class="trace-show">
+            <table class="mini">
+              <tr><th scope="col">Trial balance</th><th scope="col">&pound;</th></tr>
+              <tr><td>0050 Plant and machinery</td><td>142,700</td></tr>
+              <tr><td>0060 Motor vehicles</td><td>96,500</td></tr>
+              <tr><td>0058 Accumulated depreciation</td><td>(54,990)</td></tr>
+              <tr class="tot"><td>Carried</td><td>184,210</td></tr>
+            </table>
+          </div>
+        </div>
 
-      <div class="h-captcha" data-captcha="true"></div>
+        <div class="trace-step">
+          <p class="trace-n">02</p>
+          <div class="trace-say">
+            <h3>Map</h3>
+            <p>All three accounts take one taxonomy element, from the FRC entry point for the standard you report under. Confirm it in the first year and it is kept: next year the same codes arrive already mapped, and only the figures change.</p>
+          </div>
+          <div class="trace-show">
+            <table class="mini mini-stack">
+              <tr><th scope="col">Account</th><th scope="col">Element</th></tr>
+              <tr><td>0050, 0060, 0058</td><td><span class="chip">frs:PropertyPlantEquipment</span></td></tr>
+            </table>
+            <p class="trace-foot">142 of 142 accounts mapped</p>
+          </div>
+        </div>
 
-      <button type="submit">Send</button>
-      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-    </form>
+        <div class="trace-step">
+          <p class="trace-n">03</p>
+          <div class="trace-say">
+            <h3>Review</h3>
+            <p>The statements and the notes are built from the mapped figures rather than retyped from them, so the face of the balance sheet and the fixed asset note carry the same number by construction.</p>
+          </div>
+          <div class="trace-show">
+            <table class="mini">
+              <tr><th scope="col">Fixed assets</th><th scope="col">2026</th><th scope="col">2025</th></tr>
+              <tr><td>Tangible assets</td><td>184,210</td><td>162,904</td></tr>
+              <tr><td>Note 8, tangible assets</td><td>184,210</td><td>162,904</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="trace-step">
+          <p class="trace-n">04</p>
+          <div class="trace-say">
+            <h3>File</h3>
+            <p>The tag Companies House and HMRC read. You can open the file yourself and find your own trial balance inside it, which is the whole point of the three steps above.</p>
+          </div>
+          <div class="trace-show">
+            <pre class="codeblk">&lt;ix:nonFraction
+  name="<b>frs:PropertyPlantEquipment</b>"
+  contextRef="FY2026"
+  unitRef="GBP" decimals="0"&gt;<b>184,210</b>&lt;/ix:nonFraction&gt;</pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="approach">
+    <div class="wrap">
+      <p class="eyebrow">Approach</p>
+      <h2>Our approach to building.</h2>
+      <div class="principles">
+        <div>
+          <h3>Build together, don't reinvent alone.</h3>
+          <p>Accountants solving the same problem separately is wasted effort. Shared, open-core tools get better faster.</p>
+        </div>
+        <div>
+          <h3>For growing businesses.</h3>
+          <p>Start-ups, scale-ups and SMEs need something simpler than the platforms multinationals have the budget for.</p>
+        </div>
+        <div>
+          <h3>Built LLM-first.</h3>
+          <p>Every tool can be driven by an LLM as directly as by a person, with any frontier model rather than one provider.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block block-alt contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Request early access.</h2>
+        <p class="section-lede">Early access is open to UK practices and finance teams preparing accounts under FRS 101, FRS 102, FRS 105 or UK-adopted IFRS. Tell us what you file and we will be in touch within two working days.</p>
+        <p class="form-hint">We use what you send only to reply to you, and we do not pass it on. Statisfying Ltd is the data controller: the <a href="privacy/">privacy notice</a> says what that means in practice.</p>
+      </div>
+      <div class="contact-form">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="4794ed68-f98e-4a54-9e62-15b020e1b3da">
+          <input type="hidden" name="subject" value="New enquiry from statisfying.com">
+          <input type="hidden" name="from_name" value="statisfying.com">
+          <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" name="interest">
+              <option>HappyStats early access</option>
+              <option>Building a tool with you</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <div class="h-captcha" data-captcha="true"></div>
+
+          <button class="btn btn-primary" type="submit">Send</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </section>
 
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <p class="wordmark">statisfying</p>
+        <p>Satisfying software tools for accountants. Small tools, done properly, for start-ups, scale-ups and SMEs.</p>
+      </div>
+      <div>
+        <p class="col-head">HappyStats</p>
+        <a href="#what">What it does</a>
+        <a href="#how">How it works</a>
+      </div>
+      <div>
+        <p class="col-head">statisfying</p>
+        <a href="#approach">Our approach</a>
+        <a href="#contact">Request early access</a>
+        <a href="privacy/">Privacy notice</a>
+      </div>
+    </div>
+    <p class="legal">Statisfying Ltd is a company registered in England and Wales, company number 17343447. Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ.</p>
+  </div>
+</footer>
 
 <script>
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   const button = form.querySelector('button[type="submit"]');
+
+  // The Web3Forms client script pulls in hCaptcha, which sets a cookie and sends
+  // the visitor's IP to a third party. Only someone using the form needs it, so
+  // it loads on first contact with the form rather than on every page view. Its
+  // init runs as soon as the script executes, not on window load, so injecting
+  // it late still works.
+  let formScriptRequested = false;
+
+  function loadFormScript() {
+    if (formScriptRequested) return;
+    formScriptRequested = true;
+    const script = document.createElement('script');
+    script.src = 'https://web3forms.com/client/script.js';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+
+  // Hover, tap, focus or type: whichever comes first, and all of them come well
+  // before anyone has finished filling the form.
+  ['pointerenter', 'pointerdown', 'touchstart', 'focusin', 'keydown'].forEach((event) => {
+    form.addEventListener(event, loadFormScript, { once: true, passive: true });
+  });
 
   function setStatus(message, state) {
     status.textContent = message;
@@ -94,7 +330,12 @@
     const data = Object.fromEntries(new FormData(form));
 
     if (!data['h-captcha-response']) {
-      setStatus('Please complete the anti-spam check above.', 'error');
+      if (window.hcaptcha) {
+        setStatus('Please complete the anti-spam check above.', 'error');
+      } else {
+        loadFormScript();
+        setStatus('Loading the anti-spam check. It will appear above in a moment.', null);
+      }
       return;
     }
 
@@ -112,7 +353,7 @@
       if (response.ok && result.success) {
         form.reset();
         if (window.hcaptcha) window.hcaptcha.reset();
-        setStatus("Thanks - your message has been sent. I'll be in touch.", 'success');
+        setStatus('Thanks, your message has been sent. We will be in touch.', 'success');
       } else {
         if (window.hcaptcha) window.hcaptcha.reset();
         setStatus(result.message || "Sorry, that didn't send. Please try again.", 'error');
@@ -125,13 +366,6 @@
     }
   });
 </script>
-<script src="https://web3forms.com/client/script.js" async defer></script>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <p>&copy; 2026 statisfying</p>
-  </div>
-</footer>
 
 </body>
 </html>

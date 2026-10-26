@@ -143,6 +143,8 @@ table.fig th{font-size:10px;font-weight:600;color:var(--text-muted);text-align:r
 table.fig th:first-child{text-align:left}
 table.fig td:not(:first-child){text-align:right}
 table.fig tr.sec td{font-weight:600;padding-top:9px}
+table.fig tr.subtot td{font-weight:600;border-top:1px solid var(--rule)}
+table.fig tr.subtot td:first-child{border-top:none}
 table.fig tr.tot td{font-weight:700;border-top:2px solid var(--ink-900)}
 table.fig tr.tot td:first-child{border-top:none}
 .check{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:4px 9px;font-size:11px;color:var(--emerald-700);background:var(--emerald-50);border:1px solid var(--emerald-200);border-radius:var(--radius-pill)}
@@ -283,6 +285,8 @@ button:disabled{opacity:.6;cursor:default}
 .legal-body section{border-top:1px solid var(--border);margin-top:32px;padding-top:28px}
 .legal-body h2{counter-increment:sec;font-family:var(--font-display);font-size:21px;font-weight:700;letter-spacing:var(--tracking-tight);color:var(--green-800);margin:0 0 12px}
 .legal-body h2::before{content:counter(sec) ". ";color:var(--accent)}
+/* A page with one section has nothing to number. */
+.legal-body.unnumbered h2::before{content:none}
 .legal-body h3{font-family:var(--font-display);font-size:16px;font-weight:700;margin:20px 0 6px}
 .legal-body p,.legal-body li{max-width:var(--measure-note);font-size:16px;color:var(--ink-700)}
 .legal-body p+p{margin-top:12px}

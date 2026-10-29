@@ -67,8 +67,10 @@ Excel, click Connect again, and choose Allow when NetSuite asks.</p>
 <p>Otherwise, what NetSuite reported is in the table below. Go back to Excel and click Connect
 again. If it keeps happening, send whoever administers your NetSuite account the <code>error</code>
 value: it names the reason, and they can see the rest in the account's login audit trail.</p>
-<p>There is no code to paste this time, so there is nothing for the Connect dialog to do with
-this page. Close it and start again in Excel.</p>
+<p id="no-code">There is no code to paste this time, so there is nothing for the Connect dialog
+to do with this page. Close it and start again in Excel.</p>
+<p id="stray-code" hidden>NetSuite sent a code as well as an error, so the sign-in did not finish
+and that code cannot be relied on. Ignore it, close this page, and click Connect again in Excel.</p>
 </div>
 <div class="worked">
 <p>NetSuite has sent you back here, which means the sign-in worked. Excel could not be reached
@@ -142,6 +144,11 @@ values in it: go back to Excel and click Connect again.</p>
   var worked = document.getElementsByClassName('worked');
   for (var j = worked.length - 1; j >= 0; j--) {
     worked[j].hidden = true;
+  }
+  var stray = query.get('code');
+  if (stray !== null && stray !== '') {
+    document.getElementById('no-code').hidden = true;
+    document.getElementById('stray-code').hidden = false;
   }
 })();
 </script>

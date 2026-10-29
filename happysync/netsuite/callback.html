@@ -45,7 +45,8 @@ ol{margin:0 0 12px;padding-left:22px;max-width:70ch}
 li{margin:0 0 5px}
 code{font-family:var(--font-mono);font-size:12.5px}
 .values{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:4px 16px;margin:0 0 16px}
-.values dl{margin:0;display:grid;grid-template-columns:120px minmax(0,1fr);gap:0}
+.values dl{margin:0;display:grid;grid-template-columns:165px minmax(0,1fr);gap:0}
+.values dl > div:not([hidden]){display:contents}
 .values dt{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-700);padding:10px 0;border-bottom:1px solid var(--border)}
 .values dd{margin:0;padding:10px 0;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:13px;overflow-wrap:anywhere}
 .values dl > :nth-last-child(1),.values dl > :nth-last-child(2){border-bottom:0}
@@ -57,7 +58,19 @@ code{font-family:var(--font-mono);font-size:12.5px}
 <div class="bar"><p class="wordmark">statisfying</p></div>
 </header>
 <main>
-<h1>Finish signing in to NetSuite</h1>
+<h1 data-failed="Sign-in did not finish">Finish signing in to NetSuite</h1>
+<div id="failed" hidden>
+<p><strong>NetSuite did not complete the sign-in.</strong> Nothing has been connected, and nothing in your
+NetSuite account has been changed or shared.</p>
+<p>If you clicked Cancel or Deny on NetSuite's consent screen, that is what this is. Go back to
+Excel, click Connect again, and choose Allow when NetSuite asks.</p>
+<p>Otherwise, what NetSuite reported is in the table below. Go back to Excel and click Connect
+again. If it keeps happening, send whoever administers your NetSuite account the <code>error</code>
+value: it names the reason, and they can see the rest in the account's login audit trail.</p>
+<p>There is no code to paste this time, so there is nothing for the Connect dialog to do with
+this page. Close it and start again in Excel.</p>
+</div>
+<div class="worked">
 <p>NetSuite has sent you back here, which means the sign-in worked. Excel could not be reached
 directly, so the last step is a copy and paste.</p>
 <ol>
@@ -65,8 +78,13 @@ directly, so the last step is a copy and paste.</p>
 <li>Go back to Excel, to the Connect dialog that is waiting, and paste it into the box.</li>
 <li>Click Finish. The add-in does the rest.</li>
 </ol>
+</div>
 <div class="values">
 <dl>
+<div id="errors" hidden>
+<dt>error</dt><dd id="v-error"></dd>
+<dt>error_description</dt><dd id="v-error-description"></dd>
+</div>
 <dt>company</dt><dd id="v-company"></dd>
 <dt>entity</dt><dd id="v-entity"></dd>
 <dt>role</dt><dd id="v-role"></dd>
@@ -74,6 +92,7 @@ directly, so the last step is a copy and paste.</p>
 <dt>state</dt><dd id="v-state"></dd>
 </dl>
 </div>
+<div class="worked">
 <p>Pasting the whole address is the safer of the two, because it carries the account ID as
 well. A bare <code>code</code> works only if you typed an Account ID in the Connect dialog before you
 started.</p>
@@ -84,6 +103,7 @@ tells no one you visited it.</p>
 <p>The <code>code</code> is single use and stops working after a few minutes. If it has gone stale, click
 Connect in Excel again and start over. If this page shows nothing at all, the address has no
 values in it: go back to Excel and click Connect again.</p>
+</div>
 </main>
 <footer class="site">
 <div class="bar">
@@ -93,17 +113,33 @@ values in it: go back to Excel and click Connect again.</p>
 </footer>
 <script>
 (function () {
-  var names = ['company', 'entity', 'role', 'code', 'state'];
   var query = new URLSearchParams(window.location.search);
-  for (var i = 0; i < names.length; i++) {
-    var cell = document.getElementById('v-' + names[i]);
-    var value = query.get(names[i]);
+  function show(id, value) {
+    var cell = document.getElementById('v-' + id);
     if (value === null || value === '') {
       cell.textContent = 'not in the address';
       cell.className = 'missing';
     } else {
       cell.textContent = value;
     }
+  }
+  var names = ['company', 'entity', 'role', 'code', 'state'];
+  for (var i = 0; i < names.length; i++) {
+    show(names[i], query.get(names[i]));
+  }
+  var failed = query.get('error');
+  if (failed === null || failed === '') {
+    return;
+  }
+  show('error', failed);
+  show('error-description', query.get('error_description'));
+  var title = document.querySelector('h1');
+  title.textContent = title.getAttribute('data-failed');
+  document.getElementById('failed').hidden = false;
+  document.getElementById('errors').hidden = false;
+  var worked = document.getElementsByClassName('worked');
+  for (var j = worked.length - 1; j >= 0; j--) {
+    worked[j].hidden = true;
   }
 })();
 </script>

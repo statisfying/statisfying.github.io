@@ -1,5 +1,5 @@
 /* Smile burst: a click scatters a pinch of tiny smiley faces from the pointer,
-   which tumble out, drop a little and fade, like a sprinkle of salt.
+   which fly out, drop a little and fade, like a sprinkle of salt.
 
    Decoration only. Every face is aria-hidden and takes no pointer events, so
    nothing about the page changes for a screen reader or for what the click
@@ -45,7 +45,6 @@
       var dx = Math.cos(angle) * dist;
       var dy = Math.sin(angle) * dist - 14;
       var fall = rand(18, 34);           // extra drop at the end: the "gravity"
-      var spin = rand(-220, 220);
 
       var el = document.createElement('span');
       el.innerHTML = FACE;
@@ -57,9 +56,9 @@
       live++;
 
       var anim = el.animate([
-        { transform: 'translate(0,0) scale(0.3) rotate(0deg)', opacity: 1 },
-        { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(1) rotate(' + spin * 0.6 + 'deg)', opacity: 1, offset: 0.45 },
-        { transform: 'translate(' + dx * 1.15 + 'px,' + (dy + fall) + 'px) scale(0.8) rotate(' + spin + 'deg)', opacity: 0 }
+        { transform: 'translate(0,0) scale(0.3)', opacity: 1 },
+        { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(1)', opacity: 1, offset: 0.45 },
+        { transform: 'translate(' + dx * 1.15 + 'px,' + (dy + fall) + 'px) scale(0.8)', opacity: 0 }
       ], {
         duration: rand(650, 950),
         easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)',

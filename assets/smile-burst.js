@@ -11,7 +11,7 @@
   var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (!document.body || !document.body.animate) return;
 
-  var PER_BURST = 7;   // faces per click
+  var PER_BURST = 4;   // faces per click
   var MAX_LIVE = 60;   // ceiling on faces on screen, for a frantic clicker
   var live = 0;
 
@@ -38,10 +38,10 @@
     var offset = Math.random() * Math.PI * 2;
 
     for (var i = 0; i < count; i++) {
-      var size = rand(9, 16);
+      var size = rand(15, 22);
       // Spread the faces round the circle with a little jitter, biased upward.
       var angle = offset + (i / PER_BURST) * Math.PI * 2 + rand(-0.35, 0.35);
-      var dist = rand(28, 64);
+      var dist = rand(34, 72);
       var dx = Math.cos(angle) * dist;
       var dy = Math.sin(angle) * dist - 14;
       var fall = rand(18, 34);           // extra drop at the end: the "gravity"

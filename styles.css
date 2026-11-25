@@ -112,8 +112,10 @@ a:hover{color:var(--accent-hover)}
 
 /* ── Buttons ── */
 .btn{display:inline-block;font:600 15px/1 var(--font-body);padding:12px 18px;border:1px solid transparent;border-radius:var(--radius);cursor:pointer;transition:var(--transition-interactive)}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-hover);color:#fff}
+/* Primary sits one step darker than the brand green: white on green 500 is 4.12:1, short of
+   WCAG AA's 4.5:1 for 15px text. Green 600 gives 5.60:1, and the hover green 700 gives 8.09:1. */
+.btn-primary{background:var(--accent-hover);color:#fff}
+.btn-primary:hover{background:var(--accent-deep);color:#fff}
 .btn-secondary{background:var(--surface);color:var(--text);border-color:var(--border)}
 .btn-secondary:hover{background:var(--bg);color:var(--text)}
 .btn-sm{padding:9px 14px;font-size:14px}
@@ -121,7 +123,8 @@ a:hover{color:var(--accent-hover)}
 /* ── Hero ── */
 .hero{padding:72px 0 56px}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
-.eyebrow{font-size:13px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--accent)}
+/* Green 600, not the brand 500: 13px text needs 4.5:1, and 500 gives only 3.69:1 on the page ground. */
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--accent-hover)}
 h1{font-family:var(--font-display);font-weight:700;font-size:46px;line-height:1.1;letter-spacing:var(--tracking-wordmark);color:var(--green-800);margin:14px 0 18px}
 .lede{font-size:var(--text-web-lede);color:var(--ink-700);max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}

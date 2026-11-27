@@ -56,18 +56,25 @@
   --font-body:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --font-mono:'SF Mono',ui-monospace,Menlo,Consolas,monospace;
 
+  --text-xl:18px;
   --text-web-body:16px;
   --text-web-lede:18px;
+  --leading-tight:1.15;
+  --leading-snug:1.35;
   --tracking-tight:-0.3px;
   --tracking-wordmark:-0.02em;
   --tracking-caps:0.08em;
   --measure-prose:82ch;
   --measure-note:76ch;
+  --web-wrap:720px;
 
   --radius-xs:3px;
   --radius:6px;
+  --radius-md:8px;
   --radius-pill:99px;
   --shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.06);
+  --shadow-modal:0 20px 60px rgba(0,0,0,0.18);
+  --text-inverse:#ffffff;
   --focus-ring:0 0 0 3px rgba(29,143,82,0.12);
 
   --dur-instant:100ms;
@@ -77,6 +84,12 @@
      product-led page carrying a screen needs more, so the shell is the sheet
      width and prose keeps its own measure. */
   --page-wrap:1040px;
+
+  /* One control height for buttons, inputs and selects, at the 44px touch floor
+     (StyleSeed CRAFT-control-heights). The header's small button sits one step
+     down on desktop and comes back up to 44px on touch widths. */
+  --control-h:44px;
+  --control-h-sm:40px;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -111,43 +124,47 @@ a:hover{color:var(--accent-hover)}
 .site-nav a:hover{color:var(--text)}
 
 /* ── Buttons ── */
-.btn{display:inline-block;font:600 15px/1 var(--font-body);padding:12px 18px;border:1px solid transparent;border-radius:var(--radius);cursor:pointer;transition:var(--transition-interactive)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--control-h);font:600 15px/1 var(--font-body);padding:0 16px;border:1px solid transparent;border-radius:var(--radius);cursor:pointer;transition:var(--transition-interactive)}
 /* Primary sits one step darker than the brand green: white on green 500 is 4.12:1, short of
    WCAG AA's 4.5:1 for 15px text. Green 600 gives 5.60:1, and the hover green 700 gives 8.09:1. */
-.btn-primary{background:var(--accent-hover);color:#fff}
-.btn-primary:hover{background:var(--accent-deep);color:#fff}
+.btn-primary{background:var(--accent-hover);color:var(--text-inverse)}
+.btn-primary:hover{background:var(--accent-deep);color:var(--text-inverse)}
 .btn-secondary{background:var(--surface);color:var(--text);border-color:var(--border)}
 .btn-secondary:hover{background:var(--bg);color:var(--text)}
-.btn-sm{padding:9px 14px;font-size:14px}
+.btn-sm{min-height:var(--control-h-sm);padding:0 14px;font-size:14px}
 
 /* ── Hero ── */
 .hero{padding:72px 0 56px}
-.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+/* The statement is the hero's evidence, so it gets the wider column (StyleSeed:
+   let data regions use the width they need); the gap gives back the rest. */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center}
 /* Green 600, not the brand 500: 13px text needs 4.5:1, and 500 gives only 3.69:1 on the page ground. */
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--accent-hover)}
-h1{font-family:var(--font-display);font-weight:700;font-size:46px;line-height:1.1;letter-spacing:var(--tracking-wordmark);color:var(--green-800);margin:14px 0 18px}
+h1{font-family:var(--font-display);font-weight:700;font-size:46px;line-height:1.1;letter-spacing:var(--tracking-wordmark);color:var(--green-800);margin:12px 0 16px}
 .lede{font-size:var(--text-web-lede);color:var(--ink-700);max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .hero-note{font-size:14px;color:var(--text-muted);margin-top:16px}
 
 /* ── Product window: the app's own surfaces, shrunk ── */
-.window{background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.10);overflow:hidden;font-size:13px}
-.window-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--border);background:var(--bg)}
-.window-bar i{width:9px;height:9px;border-radius:50%;background:var(--sand-300)}
-.window-bar span{margin-left:10px;font-size:11px;color:var(--text-muted)}
-.window-body{display:grid;grid-template-columns:132px minmax(0,1fr)}
+/* Warm Ledger has two elevations: the card whisper and the modal lift. The
+   product screen is the page's one lifted object, so it takes the modal's. */
+.window{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-modal);overflow:hidden;font-size:13px}
+.window-bar{padding:8px 14px;border-bottom:1px solid var(--border);background:var(--bg);font-size:11px;color:var(--text-muted)}
+.window-body{display:grid;grid-template-columns:120px minmax(0,1fr)}
 .window-side{background:var(--surface);border-right:1px solid var(--border);padding:12px 0}
 .window-side .grp{font-size:10px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--text-muted);padding:8px 14px 4px}
 .window-side .it{padding:5px 14px;color:var(--ink-700)}
 .window-side .it.on{background:var(--accent-tint);color:var(--accent-deep);font-weight:600}
-.window-main{padding:16px 18px;background:var(--bg);min-width:0}
+.window-main{padding:16px;background:var(--bg);min-width:0}
 .window-main .win-title{font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:2px}
 .window-main .sub{font-size:11px;color:var(--text-muted);margin-bottom:10px}
 table.fig{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
 table.fig th,table.fig td{padding:5px 10px;font-variant-numeric:tabular-nums}
 table.fig th{font-size:10px;font-weight:600;color:var(--text-muted);text-align:right;border-bottom:1px solid var(--border)}
 table.fig th:first-child{text-align:left}
-table.fig td:not(:first-child){text-align:right}
+/* An amount never wraps mid-value (StyleSeed DL-23). Brackets stay: UK accounts
+   show negatives in parentheses, so StyleSeed's minus-sign rule (DL-31) does not apply. */
+table.fig td:not(:first-child){text-align:right;white-space:nowrap}
 table.fig tr.sec td{font-weight:600;padding-top:9px}
 table.fig tr.subtot td{font-weight:600;border-top:1px solid var(--rule)}
 table.fig tr.subtot td:first-child{border-top:none}
@@ -159,28 +176,36 @@ table.fig tr.tot td:first-child{border-top:none}
 /* ── Facts strip ── */
 .facts{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
 .facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0}
-.fact{padding:22px 24px;border-left:1px solid var(--border);min-width:0}
+.fact{padding:20px 24px;border-left:1px solid var(--border);min-width:0}
 .fact:first-child{border-left:none}
-.fact b{display:block;font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--green-800)}
+.fact b{display:block;font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;line-height:var(--leading-snug);margin-bottom:4px;color:var(--green-800)}
 .fact span{font-size:14px;color:var(--text-muted)}
 
 /* ── Sections ── */
 .block{padding:72px 0}
 .block-alt{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-h2{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing:var(--tracking-tight);color:var(--green-800);margin:10px 0 12px}
-.section-lede{color:var(--ink-700);max-width:var(--measure-prose);margin-bottom:36px}
+/* Body leading (1.6) made two-line headings fall apart; headings take the
+   system's tight and snug leadings instead. */
+h2{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);color:var(--green-800);margin:12px 0 16px}
+/* 82ch in Public Sans set lines of about 108 characters. The site's own 720px
+   measure brings that to about 85, nearer StyleSeed's 50 to 75. */
+.section-lede{color:var(--ink-700);max-width:var(--web-wrap);margin-bottom:40px}
 
-/* ── Capability cards ── */
-.capabilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;min-width:0}
-.card h3{font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--tracking-tight);color:var(--text);margin-bottom:8px}
-.card p{font-size:15px;color:var(--ink-700)}
-.card p+p{margin-top:8px}
-.card .qname{font-family:var(--font-mono);font-size:13px;color:var(--ink-700)}
+/* One subheading role for every section: same size, leading and tracking. */
+.capability h3,.trace-say h3,.principles h3{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;line-height:var(--leading-snug);letter-spacing:var(--tracking-tight);color:var(--text);margin-bottom:8px}
+
+/* ── Capabilities: a ruled two-column list, not a wall of boxes. They are read,
+   not clicked, so a hairline separates them better than a card does, and rows
+   of uneven length no longer leave holes in matched-height boxes. ── */
+.capabilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;border-bottom:1px solid var(--rule)}
+.capability{border-top:1px solid var(--rule);padding:24px 0 28px;min-width:0}
+.capability p{font-size:15px;color:var(--ink-700)}
+.capability p+p{margin-top:8px}
+.capability .qname{font-family:var(--font-mono);font-size:13px;color:var(--ink-700)}
 
 /* ── How it works: one figure, followed down four rows, each closed by a gate ── */
 .trace{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden}
-.trace-step{display:grid;grid-template-columns:66px minmax(0,1fr) minmax(0,1.05fr);gap:0 28px;align-items:start;padding:22px 24px;position:relative}
+.trace-step{display:grid;grid-template-columns:66px minmax(0,1fr) minmax(0,1.05fr);gap:0 28px;align-items:start;padding:24px;position:relative}
 .trace-step+.trace-step{border-top:1px solid var(--border)}
 /* Mid green, not brand green: large enough to find the step by, pale enough
    not to compete with its name. The surface background is what breaks the thread. */
@@ -188,25 +213,27 @@ h2{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing
 /* The thread: the figure's path down the page, broken where each step stops it.
    left is the numeral's own centre, not the rail's, so it tracks the padding. */
 .trace-step::before{content:"";position:absolute;left:40px;top:0;bottom:0;width:1px;background:var(--rule)}
-.trace-step:first-child::before{top:22px}
+.trace-step:first-child::before{top:24px}
 .trace-step:last-child::before{bottom:auto;height:48px}
-.trace-say h3{font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:6px}
 .trace-say p{font-size:14px;color:var(--ink-700)}
 .trace-show{min-width:0}
 .trace-foot{margin-top:8px;font-size:12px;color:var(--text-muted)}
 .mini{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
-.mini th,.mini td{padding:5px 0;text-align:left;border-bottom:1px solid var(--border)}
-.mini th{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
-.mini td:not(:first-child),.mini th:not(:first-child){text-align:right;white-space:nowrap}
+.mini th,.mini td{padding:6px 0;text-align:left;border-bottom:1px solid var(--border)}
+.mini th{font-size:10px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--text-muted)}
+/* The left padding is what keeps two year columns apart: without it 2026 and
+   2025 ran together on a phone as "184,210162,904". */
+.mini td:not(:first-child),.mini th:not(:first-child){text-align:right;white-space:nowrap;padding-left:16px}
 .mini tr:last-child td{border-bottom:none}
 .mini tr.tot td{font-weight:700;border-top:2px solid var(--ink-900);border-bottom:none;padding-top:7px}
 .chip{display:inline-block;font-family:var(--font-mono);font-size:11px;padding:2px 7px;border-radius:var(--radius-xs);background:var(--accent-tint);color:var(--accent-deep);overflow-wrap:anywhere;white-space:normal}
-.codeblk{font-family:var(--font-mono);font-size:11px;line-height:1.55;color:var(--ink-700);background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-xs);padding:9px 10px;white-space:pre-wrap;overflow-wrap:anywhere}
+/* Code keeps its own line breaks and scrolls inside its box when narrow,
+   rather than breaking a tag mid-word. */
+.codeblk{font-family:var(--font-mono);font-size:11px;line-height:1.55;color:var(--ink-700);background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-xs);padding:10px 12px;white-space:pre;overflow-x:auto}
 .codeblk b{color:var(--accent-deep);font-weight:700}
 
 /* ── Approach ── */
 .principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:28px}
-.principles h3{font-family:var(--font-display);font-size:18px;font-weight:700;letter-spacing:var(--tracking-tight);margin-bottom:6px}
 .principles p{font-size:15px;color:var(--ink-700)}
 
 /* ── Contact ── */
@@ -214,7 +241,8 @@ h2{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing
 .contact-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
 .contact-form .field{margin-bottom:14px}
 .contact-form label{display:block;font-size:14px;font-weight:600;margin-bottom:5px}
-.contact-form input,.contact-form select,.contact-form textarea{width:100%;font:15px var(--font-body);color:var(--text);background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:9px 11px}
+/* Fields share the buttons' height and take Warm Ledger's field surface rather than a raw white. */
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;min-height:var(--control-h);font:15px var(--font-body);color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
 .contact-form textarea{height:96px;resize:vertical}
 .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);box-shadow:var(--focus-ring)}
 .contact-form button{width:auto}
@@ -228,14 +256,16 @@ h2{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing
 button:disabled{opacity:.6;cursor:default}
 
 /* ── Footer ── */
-.site-footer{background:var(--green-800);color:#d8e8dd;padding:48px 0 28px;font-size:14px}
-.site-footer .wordmark{color:#fff}
+/* Footer colours come from the green ramp, not one-off hexes. Each pairing on
+   green 800 clears WCAG AA: green 100 10.8:1, green 200 9.3:1, green 300 6.9:1. */
+.site-footer{background:var(--green-800);color:var(--green-100);padding:48px 0 32px;font-size:14px}
+.site-footer .wordmark{color:var(--text-inverse)}
 .site-footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px}
-.site-footer p{max-width:26em;margin-top:8px;color:#bcd8c6}
-.site-footer .col-head{font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:#8fcfab;margin:0 0 10px}
-.site-footer a{display:block;margin-bottom:6px;color:#d8e8dd}
-.site-footer a:hover{color:#fff}
-.site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:18px;max-width:var(--measure-prose);color:#9fbfaa;font-size:13px}
+.site-footer p{max-width:26em;margin-top:8px;color:var(--green-200)}
+.site-footer .col-head{font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--green-300);margin:0 0 12px}
+.site-footer a{display:block;margin-bottom:8px;color:var(--green-100)}
+.site-footer a:hover{color:var(--text-inverse)}
+.site-footer .legal{border-top:1px solid var(--green-700);margin-top:40px;padding-top:20px;max-width:var(--measure-prose);color:var(--green-300);font-size:13px}
 
 /* ── Responsive ── */
 @media (max-width:900px){
@@ -251,6 +281,8 @@ button:disabled{opacity:.6;cursor:default}
   .principles{grid-template-columns:minmax(0,1fr);gap:24px}
   .site-footer .cols{grid-template-columns:repeat(2,minmax(0,1fr))}
   .site-nav{display:none}
+  /* With the nav gone, the header button is the page's one persistent action. */
+  .btn-sm{min-height:var(--control-h)}
   h1{font-size:36px}
   .block{padding:56px 0}
 }
@@ -262,13 +294,16 @@ button:disabled{opacity:.6;cursor:default}
   .window-body{grid-template-columns:minmax(0,1fr)}
   .window-side{display:none}
   .facts .wrap{grid-template-columns:minmax(0,1fr)}
-  .fact{border-left:none;border-top:1px solid var(--border)}
+  /* 16px sides, so the facts line up with the 16px page gutter above and below. */
+  .fact{border-left:none;border-top:1px solid var(--border);padding:16px}
   .fact:first-child{border-top:none}
   .trace-step{padding:18px 16px}
   .trace-step::before{left:32px}
   .trace-step:first-child::before{top:18px}
   /* Too narrow for two columns: the QName would break mid-word in its chip. */
-  .mini-stack td,.mini-stack th{display:block;text-align:left;border-bottom:none;padding:2px 0}
+  /* Doubled class so this beats the right-alignment on .mini's number columns,
+     which had pushed the QName chip to the right edge. */
+  .mini.mini-stack td,.mini.mini-stack th{display:block;text-align:left;border-bottom:none;padding:2px 0}
   .mini-stack tr:first-child th:last-child{display:none}
   .mini-stack td:last-child{padding-bottom:6px}
   .mini-stack tr:first-child{display:block;border-bottom:1px solid var(--border)}
